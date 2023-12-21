@@ -8,8 +8,9 @@ import java.util.Optional;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 // import hello.hellospring.repository.MemoryMemberRepository;
+import jakarta.transaction.Transactional;
 
-// @Transactional
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
@@ -21,6 +22,7 @@ public class MemberService {
      * 회원 가입
      */
     public Long join(Member member) {
+
         // 같은 이름이 있는 중복 회원X
         validateDuplicateMember(member); // 중복 회원 검증
 
